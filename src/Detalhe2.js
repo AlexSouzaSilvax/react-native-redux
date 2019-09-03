@@ -6,17 +6,17 @@ import CounterApp from './CounterApp';
 import { Provider } from 'react-redux';
 import { store } from './store';
 
-class Detalhe extends React.Component {
+class Detalhe2 extends React.Component {
 
     render() {
 
         return (
             <Provider store={store}>
                 <CounterApp />
-                <Button title='Tela Detalhe2' onPress={() => { this.props.navigation.navigate('Detalhe2') }}></Button>
+                <Button title='Tela Detalhe 3' onPress={() => { this.props.navigation.navigate('Detalhe3') }}></Button>
             </Provider>
         );
     }
 }
 
-export default Detalhe;
+export default Detalhe2;

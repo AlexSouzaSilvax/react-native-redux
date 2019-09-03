@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {
     View,
     Text,
@@ -7,9 +7,9 @@ import {
 } from "react-native";
 
 import { connect } from 'react-redux'
+import { mapStateToProps, mapDispatchToProps } from './action';
 
-class CounterApp extends Component {
-
+class CounterApp extends React.Component {
 
     render() {
         return (
@@ -28,21 +28,7 @@ class CounterApp extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        counter: state.counter
-    }
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        increaseCounter: () => dispatch({ type: 'INCREASE_COUNTER' }),
-        decreaseCounter: () => dispatch({ type: 'DECREASE_COUNTER' }),
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(CounterApp)
-
+export default connect(mapStateToProps, mapDispatchToProps)(CounterApp);
 
 const styles = StyleSheet.create({
     container: {
