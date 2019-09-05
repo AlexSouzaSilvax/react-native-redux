@@ -3,14 +3,33 @@ import {
     View,
     Text,
     StyleSheet,
-    TouchableOpacity
+    TouchableOpacity,
+    TextInput,
+    Button
 } from "react-native";
 
-import { connect } from 'react-redux'
+import { connect, bindActionCreators } from 'react-redux'
+
+import alterarNome from '../src/action';
 
 class CounterApp extends React.Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            nome: 'Sou foda'
+        }
+
+        this._alterarNome = this._alterarNome.bind(this);
+    }
+
+    _alterarNome = (nome) => {
+        this.props.alterarNome(nome);
+    }
+
     render() {
+
         return (
             <View style={styles.container}>
                 <View style={{ flexDirection: 'row', width: 250, justifyContent: 'space-around' }}>
@@ -22,19 +41,34 @@ class CounterApp extends React.Component {
                         <Text style={[styles.sinalBtn, { fontSize: 45 }]}>-</Text>
                     </TouchableOpacity>
                 </View>
+
+                <View style={{ margin: 20 }}>
+                    <TextInput style={{ borderWidth: 1, borderColor: 'black', width: 300 }}
+                        value={this.props.nome}
+                        onChangeText={this._alterarNome}
+                    />
+                    <Text></Text>
+                    <Button title='Alterar Nome' onPress={() => this.props.alterarNome(nome)} />
+                    <Text></Text>
+                    <Text style={{ fontSize: 30, justifyContent: 'center', alignItems: 'center' }}>{this.props.nome}</Text>
+                </View>
+
+
             </View>
         );
     }
 }
 
 const mapStateToProps = state => ({
-    counter: state.contadorReducer.counter
+    counter: state.contadorReducer.counter,
+    nome: state.contadorReducer.nome
 });
 
 const mapDispatchToProps = dispatch => {
     return {
         aumentarContador: () => dispatch({ type: 'AUMENTAR_CONTADOR' }),
         diminuirContador: () => dispatch({ type: 'DIMINUIR_CONTADOR' }),
+        alterarNome: () => dispatch({ type: 'ALTERAR_NOME' }),
     };
 };
 
@@ -65,3 +99,5 @@ const styles = StyleSheet.create({
         color: 'white'
     }
 });
+
+//https://youtube.com/watch?v=E3VXQOK2QOM&list=PLUbb2i4BuuzATHuKoP6BcSHLxnXN4dzj6&index=13 assite essa merda dessa playlist
