@@ -1,12 +1,11 @@
-export function mapStateToProps(state) {
+export function increaseCounter() {
     return {
-        counter: state.counter
+        type: "INCREASE_COUNTER"
     }
 }
 
-export function mapDispatchToProps(dispatch) {
+export function decreaseCounter() {
     return {
-        increaseCounter: () => dispatch({ type: 'INCREASE_COUNTER' }),
-        decreaseCounter: () => dispatch({ type: 'DECREASE_COUNTER' }),
+        type: "DECREASE_COUNTER"
     }
 }

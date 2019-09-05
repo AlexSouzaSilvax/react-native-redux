@@ -7,7 +7,6 @@ import {
 } from "react-native";
 
 import { connect } from 'react-redux'
-import { mapStateToProps, mapDispatchToProps } from './action';
 
 class CounterApp extends React.Component {
 
@@ -28,7 +27,21 @@ class CounterApp extends React.Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CounterApp);
+const mapStateToProps = state => ({
+    counter: state.contadorReducer.counter
+});
+
+const mapDispatchToProps = dispatch => {
+    return {
+        increaseCounter: () => dispatch({ type: 'INCREASE_COUNTER' }),
+        decreaseCounter: () => dispatch({ type: 'DECREASE_COUNTER' }),
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(CounterApp);
 
 const styles = StyleSheet.create({
     container: {
