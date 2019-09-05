@@ -1,11 +1,11 @@
-export function increaseCounter() {
+export function aumentarContador() {
     return {
-        type: "INCREASE_COUNTER"
+        type: "AUMENTAR_CONTADOR"
     }
 }
 
-export function decreaseCounter() {
+export function diminuirContador() {
     return {
-        type: "DECREASE_COUNTER"
+        type: "DIMINUIR_CONTADOR"
     }
 }

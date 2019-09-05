@@ -13,13 +13,13 @@ class CounterApp extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <View style={{ flexDirection: 'row', width: 200, justifyContent: 'space-around' }}>
-                    <TouchableOpacity onPress={() => this.props.increaseCounter()}>
-                        <Text style={{ fontSize: 20 }}>Increase</Text>
+                <View style={{ flexDirection: 'row', width: 250, justifyContent: 'space-around' }}>
+                    <TouchableOpacity style={[styles.btn, { left: 0 }]} onPress={() => this.props.aumentarContador()}>
+                        <Text style={styles.sinalBtn}>+</Text>
                     </TouchableOpacity>
-                    <Text style={{ fontSize: 20 }}>{this.props.counter}</Text>
-                    <TouchableOpacity onPress={() => this.props.decreaseCounter()}>
-                        <Text style={{ fontSize: 20 }}>Decrease</Text>
+                    <Text style={{ fontSize: 50 }}>{this.props.counter}</Text>
+                    <TouchableOpacity style={styles.btn} onPress={() => this.props.diminuirContador()}>
+                        <Text style={[styles.sinalBtn, { fontSize: 45 }]}>-</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -33,8 +33,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
     return {
-        increaseCounter: () => dispatch({ type: 'INCREASE_COUNTER' }),
-        decreaseCounter: () => dispatch({ type: 'DECREASE_COUNTER' }),
+        aumentarContador: () => dispatch({ type: 'AUMENTAR_CONTADOR' }),
+        diminuirContador: () => dispatch({ type: 'DIMINUIR_CONTADOR' }),
     };
 };
 
@@ -48,5 +48,20 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    btn: {
+        bottom: 0,
+        right: 0,
+        position: 'absolute',
+        height: 70,
+        width: 70,
+        backgroundColor: '#00aced',
+        borderRadius: 100,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    sinalBtn: {
+        fontSize: 35,
+        color: 'white'
     }
 });

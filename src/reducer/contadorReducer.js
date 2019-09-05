@@ -4,12 +4,12 @@ export const initialState = {
 
 export default function (state = initialState, action) {
     switch (action.type) {
-        case 'INCREASE_COUNTER':
+        case 'AUMENTAR_CONTADOR':
             return {
                 ...state,
                 counter: state.counter + 1
             }
-        case 'DECREASE_COUNTER':
+        case 'DIMINUIR_CONTADOR':
             return {
                 ...state,
                 counter: state.counter - 1
