@@ -8,11 +8,11 @@ export function diminuirContador() {
     return {
         type: "DIMINUIR_CONTADOR"
     }
-}
+};
 
-export const alterarNome = (nome) => {
+export const changePostTitle = (title) => {
     return {
-        type: "ALTERAR_NOME",
-        nome: nome
+        type: 'CHANGE_POST_TITLE',
+        payload: title
     }
 };

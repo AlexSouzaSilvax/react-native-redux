@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, Button } from "react-native";
 import CounterApp from './CounterApp'
+import PostNew from './PostNew'
 import { Provider } from 'react-redux'
 
 import { store } from './store';
@@ -11,6 +12,7 @@ class App extends Component {
 
         return (
             <Provider store={store}>
+                <PostNew />
                 <CounterApp />
                 <Button title='Tela Detalhe' onPress={() => { this.props.navigation.navigate('Detalhe') }}></Button>
             </Provider>
