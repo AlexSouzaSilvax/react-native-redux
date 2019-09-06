@@ -5,6 +5,7 @@ import CounterApp from './CounterApp';
 import PostNew from './PostNew'
 import { Provider } from 'react-redux';
 import { store } from './store';
+import Data from './Data'
 
 class Detalhe4 extends React.Component {
 
@@ -12,6 +13,7 @@ class Detalhe4 extends React.Component {
 
         return (
             <Provider store={store}>
+                <Data />
                 <PostNew />
                 <CounterApp />
             </Provider>

@@ -16,3 +16,17 @@ export const changePostTitle = (title) => {
         payload: title
     }
 };
+
+export const atualizaNome = (nome) => {
+    return {
+        type: 'ATUALIZA_NOME',
+        nome
+    }
+};
+
+export const atualizaSobrenome = (sobrenome) => {
+    return {
+        type: 'ATUALIZA_SOBRENOME',        
+        sobrenome
+    }
+};
