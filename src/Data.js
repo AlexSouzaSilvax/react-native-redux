@@ -53,7 +53,7 @@ class Data extends React.Component {
     }
 
     async componentDidMount() {
-        await axios.get('http://200.201.207.199:8080/api/api/cliente/listar')
+        await axios.get('') //
             .then((response) => {
                 console.log("Lista pessoas: ", response.data)
                 this.setState({ data: response.data })
