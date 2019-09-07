@@ -17,6 +17,13 @@ export const changePostTitle = (title) => {
     }
 };
 
+export const atualizaId = (id) => {
+    return {
+        type: 'ATUALIZA_ID',
+        id
+    }
+};
+
 export const atualizaNome = (nome) => {
     return {
         type: 'ATUALIZA_NOME',
@@ -26,7 +33,7 @@ export const atualizaNome = (nome) => {
 
 export const atualizaSobrenome = (sobrenome) => {
     return {
-        type: 'ATUALIZA_SOBRENOME',        
+        type: 'ATUALIZA_SOBRENOME',
         sobrenome
     }
 };
